@@ -22,6 +22,12 @@
     float x_val;
 	float y_val;
     float z_val;
+    int Yval;
+    int Xval;
+    // FORWARD / BACKWARD
+    int movingValueFB;
+    // LEFT / RIGHT
+    int movingValueLR;
 
 }
 @property (weak, nonatomic) IBOutlet JSAnalogueStick *analogStick;

@@ -122,13 +122,48 @@
 - (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
 {
     
-    [self.x_txt setText:[NSString stringWithFormat:@"x: %f",self.analogStick.xValue]];
-    [self.y_txt setText:[NSString stringWithFormat:@"y: %f",self.analogStick.yValue]];
+    [self.x_txt setText:[NSString stringWithFormat:@"x: %f",self.analogStick.xValue*255]];
+    [self.y_txt setText:[NSString stringWithFormat:@"y: %f",self.analogStick.yValue*255]];
     [self.z_txt setText:[NSString stringWithFormat:@"z: !"]];
     
+    //if(self.analogStick.xValue
     
-	    [self processAnalogControls];
-   
+	   
+    
+    
+    // X horisontal
+     Xval = self.analogStick.xValue*255;
+    
+    if(Xval >= 50){
+        NSLog(@"GOING RIGHT");
+        movingValueLR = 4;
+        
+    }
+    if(Xval <= -50){
+        NSLog(@"GOING LEFT");
+        movingValueLR = 3;
+    }
+    
+    
+    // Y Vertical
+     Yval = self.analogStick.yValue*255;
+    
+    
+    if(Yval >= 50){
+        NSLog(@"GOING FORWARD");
+        movingValueFB = 1;
+    }else
+    if(Yval <= -50){
+        NSLog(@"GOING BACKWARD");
+        movingValueFB = 2;
+    }
+    
+    else{
+        Yval = 0;
+        Xval = 0;
+        
+    }
+    [self processAnalogControls];
     
 }
 
@@ -139,7 +174,7 @@
         
         int scaledXval = self.analogStick.xValue;//*255;
     
-        int scaledYval = self.analogStick.yValue*255;
+        int scaledYval = self.analogStick.yValue;//*255;
         
         NSLog(@"X: %i - ,Y: %i",scaledXval,scaledYval);
         
@@ -147,8 +182,8 @@
         
         
         
-        buf[1] = scaledXval;
-        buf[3] = scaledYval;
+        buf[1] = movingValueFB;
+        buf[3] = movingValueLR;
         
         
         
