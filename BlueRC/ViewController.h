@@ -15,7 +15,12 @@
 {
     
 	CMMotionManager *motionManager;
-	NSTimer *timer;
+	
+    NSTimer *timerForward;
+    NSTimer *timerBackward;
+    NSTimer *timerLeft;
+    NSTimer *timerRight;
+    
 	float z_rotation;
 	float x_rotation;
     
@@ -30,7 +35,7 @@
     int movingValueLR;
 
 }
-@property (weak, nonatomic) IBOutlet JSAnalogueStick *analogStick;
+//@property (weak, nonatomic) IBOutlet JSAnalogueStick *analogStick;
 @property (strong, nonatomic) IBOutlet UILabel *x_txt;
 @property (strong, nonatomic) IBOutlet UILabel *y_txt;
 @property (strong, nonatomic) IBOutlet UILabel *z_txt;
@@ -45,6 +50,21 @@
 @property (nonatomic, strong) BLE *ble;
 - (IBAction)toggleUpdates:(id)sender;
 
+-(IBAction)forward;
+-(IBAction)forwardStop;
+
+-(IBAction)backward;
+-(IBAction)backwardStop;
+
+-(IBAction)left;
+-(IBAction)leftStop;
+
+-(IBAction)right;
+-(IBAction)rightStop;
 
 
+-(void)goForward;
+-(void)goBackward;
+-(void)goLeft;
+-(void)goRight;
 @end

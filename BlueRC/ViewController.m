@@ -17,9 +17,7 @@
 
 
 
-@implementation ViewController{
-    
-}
+@implementation ViewController
 
 @synthesize ble;
 @synthesize gyro_x;
@@ -29,18 +27,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    movingValueFB = -1;
+    movingValueFB = -1;
     motionManager = [[CMMotionManager alloc] init];
     
     ble = [[BLE alloc]init];
     [ble controlSetup:1];
     ble.delegate = self;
-    self.analogStick.delegate = self;
+   // self.analogStick.delegate = self;
     [self.connectButton addTarget:self action:@selector(scanForPeripherals:) forControlEvents:UIControlEventTouchUpInside];
     
     [self updateAnalogueLabel];
-    
+
    }
+
+
+
 
 -(IBAction)toggleUpdates:(id)sender {
 	if ([sender isOn]) {
@@ -59,6 +61,9 @@
 
 }
 
+
+
+
 -(void)doGyroUpdate {
 	if([motionManager isGyroAvailable])
     {
@@ -66,7 +71,7 @@
         if([motionManager isGyroActive] == NO)
         {
             /* Update us 2 times a second */
-            [motionManager setGyroUpdateInterval:1.0f / 30.0f];
+            [motionManager setGyroUpdateInterval:1.0f / 10.0f];
             
             /* Add on a handler block object */
             
@@ -117,13 +122,13 @@
 	[self.x_txt setText:[NSString stringWithFormat:@"Gyro data readout"]];
 }
 
-#pragma mark - JSAnalogueStickDelegate
+//#pragma mark - JSAnalogueStickDelegate
 
 - (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
 {
     
-    [self.x_txt setText:[NSString stringWithFormat:@"x: %f",self.analogStick.xValue*255]];
-    [self.y_txt setText:[NSString stringWithFormat:@"y: %f",self.analogStick.yValue*255]];
+    //[self.x_txt setText:[NSString stringWithFormat:@"x: %f",self.analogStick.xValue*255]];
+    //[self.y_txt setText:[NSString stringWithFormat:@"y: %f",self.analogStick.yValue*255]];
     [self.z_txt setText:[NSString stringWithFormat:@"z: !"]];
     
     //if(self.analogStick.xValue
@@ -132,21 +137,21 @@
     
     
     // X horisontal
-     Xval = self.analogStick.xValue*255;
+     //Xval = self.analogStick.xValue*255;
     
     if(Xval >= 50){
         NSLog(@"GOING RIGHT");
-        movingValueLR = 4;
+        movingValueFB = 4;
         
     }
     if(Xval <= -50){
         NSLog(@"GOING LEFT");
-        movingValueLR = 3;
+        movingValueFB = 3;
     }
     
     
     // Y Vertical
-     Yval = self.analogStick.yValue*255;
+     //Yval = self.analogStick.yValue*255;
     
     
     if(Yval >= 50){
@@ -167,29 +172,120 @@
     
 }
 
+-(IBAction)forward{
+    timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
+    if(timerForward == nil)
+        timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
+};
+-(IBAction)forwardStop{
+    [timerForward invalidate];
+    timerForward = nil;
+    movingValueFB = 99;
+    [self processAnalogControls];
+};
+
+-(IBAction)backward{
+    timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
+    if(timerBackward == nil)
+        timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
+    
+};
+-(IBAction)backwardStop{
+    [timerBackward invalidate];
+    timerBackward = nil;
+    movingValueFB = 99;
+    [self processAnalogControls];
+};
+
+-(IBAction)left{
+    timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
+    if(timerLeft == nil)
+        timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
+};
+-(IBAction)leftStop{
+    [timerLeft invalidate];
+    timerLeft = nil;
+    movingValueLR = 99;
+    [self processAnalogControls];
+};
+
+-(IBAction)right{
+    timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
+    if(timerRight == nil)
+        timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
+};
+-(IBAction)rightStop{
+    [timerRight invalidate];
+    timerRight = nil;
+    movingValueLR = 99;
+    [self processAnalogControls];
+};
+
+
+-(void)goForward{movingValueFB = 5;[self processAnalogControls];};
+-(void)goBackward{movingValueFB = 1;[self processAnalogControls];};
+-(void)goLeft{movingValueLR = 6;[self processAnalogControls];};
+-(void)goRight{movingValueLR = 2;[self processAnalogControls];};
 
 -(void)processAnalogControls{
+    
+    if(movingValueFB == 0)
+    movingValueFB =99;
+    
+    if(movingValueLR == 0)
+        movingValueLR =99;
+    
     if([ble isConnected]){
         
         
-        int scaledXval = self.analogStick.xValue;//*255;
+        //int scaledXval= abs(floorf((int)movingValueFB));//movingValueFB;//*255;
     
-        int scaledYval = self.analogStick.yValue;//*255;
+   //     int scaledYval= abs(floorf((int)movingValueLR));//movingValueLR;//*255;
         
-        NSLog(@"X: %i - ,Y: %i",scaledXval,scaledYval);
+       
         
+        //buf[]={scaledValForMotor1, dirForMotor1(HIGH|LOW),scalevValForMotor2, dirForMotor2(HIGH|LOW) NULL}
         UInt8 buf[5] = {0x00, 0x00, 0x00, 0x00, 0x00};
         
+       // buf[1] = scaledYval;
+       // buf[3] = scaledXval;
         
+        buf[0] = movingValueFB;
+        buf[2] = movingValueLR;
+        buf[1] = 99;
+        buf[3] = 99;
         
-        buf[1] = movingValueFB;
-        buf[3] = movingValueLR;
+        if(movingValueFB == 5){
+        buf[1] = 255;
+        }
         
+        else if(movingValueFB == 1){
+        buf[1] = 0;
+        }
+        else if(movingValueFB == -1){
+            NSLog(@"FB button release");
+            buf[1] = 99;
+            buf[0] = 99;
+        }
+        
+        if(movingValueLR == 6){
+            buf[3] = 255;
+        
+        }else if(movingValueLR == 2) {
+            buf[3] = 0;
+        }else if(movingValueLR == -1){
+             NSLog(@"LR button release");
+            buf[3] = 99;
+            buf[2] = 99;
+        }
+        
+         NSLog(@"FB: %i ,LR: %i",buf[3],buf[1]);
         
         
         NSData *d = [[NSData alloc]initWithBytes:buf length:5];
 
         [ble write:d];
+        
         
     }
 }
