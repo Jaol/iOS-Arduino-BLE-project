@@ -173,6 +173,7 @@
 }
 
 -(IBAction)forward{
+    movingValueFB = 5;[self processAnalogControls];
     timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
     if(timerForward == nil)
         timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
@@ -185,6 +186,7 @@
 };
 
 -(IBAction)backward{
+    movingValueFB = 1;[self processAnalogControls];
     timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
     if(timerBackward == nil)
         timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
@@ -198,6 +200,7 @@
 };
 
 -(IBAction)left{
+    movingValueLR = 6;[self processAnalogControls];
     timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
     if(timerLeft == nil)
         timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
@@ -210,6 +213,7 @@
 };
 
 -(IBAction)right{
+    movingValueLR = 2;[self processAnalogControls];
     timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
     if(timerRight == nil)
         timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
@@ -222,12 +226,14 @@
 };
 
 
--(void)goForward{movingValueFB = 5;[self processAnalogControls];};
--(void)goBackward{movingValueFB = 1;[self processAnalogControls];};
--(void)goLeft{movingValueLR = 6;[self processAnalogControls];};
--(void)goRight{movingValueLR = 2;[self processAnalogControls];};
+-(void)goForward{};
+-(void)goBackward{};
+-(void)goLeft{};
+-(void)goRight{};
 
 -(void)processAnalogControls{
+    
+    NSLog(@"pres/release");
     
     if(movingValueFB == 0)
     movingValueFB =99;
@@ -279,7 +285,7 @@
             buf[2] = 99;
         }
         
-         NSLog(@"FB: %i ,LR: %i",buf[3],buf[1]);
+        // NSLog(@"FB: %i ,LR: %i",buf[3],buf[1]);
         
         
         NSData *d = [[NSData alloc]initWithBytes:buf length:5];
