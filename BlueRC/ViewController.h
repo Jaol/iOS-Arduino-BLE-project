@@ -44,6 +44,7 @@
 @property (strong, nonatomic) IBOutlet NSString *gyro_y;
 @property (strong, nonatomic) IBOutlet NSString *gyro_z;
 
+@property (strong, nonatomic) IBOutlet UISwitch *connectSwitch;
 
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UILabel *rssiLabel;

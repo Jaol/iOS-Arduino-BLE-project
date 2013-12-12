@@ -326,7 +326,8 @@
 
 #pragma mark - BLEDelegate
 -(void)bleDidConnect{
-    [self.connectButton setTitle:@"Disconnect" forState:UIControlStateNormal];
+    [self.connectButton setTitle:@"ON" forState:UIControlStateNormal];
+[self.connectButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [self.connectButton removeTarget:self action:@selector(scanForPeripherals:) forControlEvents:UIControlEventTouchUpInside];
     [self.connectButton addTarget:self action:@selector(disconnectFromPeripheral) forControlEvents:UIControlEventTouchUpInside];
     //self.connectButton.enabled = YES;
@@ -334,7 +335,8 @@
 }
 
 -(void)bleDidDisconnect{
-    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    [self.connectButton setTitle:@"OFF" forState:UIControlStateNormal];
+    [self.connectButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.connectButton removeTarget:self action:@selector(disconnectFromPeripheral) forControlEvents:UIControlEventTouchUpInside];
     [self.connectButton addTarget:self action:@selector(scanForPeripherals:) forControlEvents:UIControlEventTouchUpInside];
     self.rssiLabel.text = @"RSSI";

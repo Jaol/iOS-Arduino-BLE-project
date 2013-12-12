@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:BlueRC.xcodeproj">
+      location = "self:RC CAR.xcodeproj">
    </FileRef>
 </Workspace>

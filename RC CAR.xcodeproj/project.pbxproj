@@ -27,19 +27,24 @@
 		CE938FD4179AFE7B0013699D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE938FD3179AFE7B0013699D /* CoreBluetooth.framework */; };
 		D155BC7D1855AF40002E4F82 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155BC7C1855AF40002E4F82 /* CoreMotion.framework */; };
 		D155BC801856011A002E4F82 /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = D155BC7F1856011A002E4F82 /* JSAnalogueStick.m */; };
+		D1CAA98A1859B99C0044D8C2 /* BLE-remote-design.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9891859B99C0044D8C2 /* BLE-remote-design.png */; };
+		D1CAA98C1859D6730044D8C2 /* iphone_retina_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98B1859D6730044D8C2 /* iphone_retina_landscape.png */; };
+		D1CAA9901859DD820044D8C2 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98D1859DD820044D8C2 /* icon57.png */; };
+		D1CAA9911859DD820044D8C2 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98E1859DD820044D8C2 /* icon114.png */; };
+		D1CAA9921859DD820044D8C2 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98F1859DD820044D8C2 /* icon120.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06AE81CE179C7F8700CD66B6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		06AE81D0179C817700CD66B6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		CE938F9D179AFCBD0013699D /* BlueRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE938F9D179AFCBD0013699D /* RC CAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RC CAR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE938FA0179AFCBD0013699D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE938FA2179AFCBD0013699D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE938FA4179AFCBD0013699D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CE938FA8179AFCBD0013699D /* BlueRC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlueRC-Info.plist"; sourceTree = "<group>"; };
+		CE938FA8179AFCBD0013699D /* RC CAR-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RC CAR-Info.plist"; sourceTree = "<group>"; };
 		CE938FAA179AFCBD0013699D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE938FAC179AFCBD0013699D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE938FAE179AFCBD0013699D /* BlueRC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlueRC-Prefix.pch"; sourceTree = "<group>"; };
+		CE938FAE179AFCBD0013699D /* RC CAR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RC CAR-Prefix.pch"; sourceTree = "<group>"; };
 		CE938FAF179AFCBD0013699D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE938FB0179AFCBD0013699D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE938FB2179AFCBD0013699D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -59,6 +64,11 @@
 		D155BC7C1855AF40002E4F82 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		D155BC7E1856011A002E4F82 /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
 		D155BC7F1856011A002E4F82 /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
+		D1CAA9891859B99C0044D8C2 /* BLE-remote-design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BLE-remote-design.png"; sourceTree = "<group>"; };
+		D1CAA98B1859D6730044D8C2 /* iphone_retina_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_retina_landscape.png; sourceTree = "<group>"; };
+		D1CAA98D1859DD820044D8C2 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		D1CAA98E1859DD820044D8C2 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		D1CAA98F1859DD820044D8C2 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +100,7 @@
 		CE938F9E179AFCBD0013699D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE938F9D179AFCBD0013699D /* BlueRC.app */,
+				CE938F9D179AFCBD0013699D /* RC CAR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,7 +123,12 @@
 		CE938FA6179AFCBD0013699D /* BlueRC */ = {
 			isa = PBXGroup;
 			children = (
+				D1CAA98D1859DD820044D8C2 /* icon57.png */,
+				D1CAA98E1859DD820044D8C2 /* icon114.png */,
+				D1CAA98F1859DD820044D8C2 /* icon120.png */,
+				D1CAA9891859B99C0044D8C2 /* BLE-remote-design.png */,
 				CE938FAF179AFCBD0013699D /* AppDelegate.h */,
+				D1CAA98B1859D6730044D8C2 /* iphone_retina_landscape.png */,
 				CE938FB0179AFCBD0013699D /* AppDelegate.m */,
 				CE938FB8179AFCBD0013699D /* MainStoryboard.storyboard */,
 				CE938FBB179AFCBE0013699D /* ViewController.h */,
@@ -128,10 +143,10 @@
 		CE938FA7179AFCBD0013699D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE938FA8179AFCBD0013699D /* BlueRC-Info.plist */,
+				CE938FA8179AFCBD0013699D /* RC CAR-Info.plist */,
 				CE938FA9179AFCBD0013699D /* InfoPlist.strings */,
 				CE938FAC179AFCBD0013699D /* main.m */,
-				CE938FAE179AFCBD0013699D /* BlueRC-Prefix.pch */,
+				CE938FAE179AFCBD0013699D /* RC CAR-Prefix.pch */,
 				CE938FB2179AFCBD0013699D /* Default.png */,
 				CE938FB4179AFCBD0013699D /* Default@2x.png */,
 				CE938FB6179AFCBD0013699D /* Default-568h@2x.png */,
@@ -165,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE938F9C179AFCBD0013699D /* BlueRC */ = {
+		CE938F9C179AFCBD0013699D /* RC CAR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE938FC0179AFCBE0013699D /* Build configuration list for PBXNativeTarget "BlueRC" */;
+			buildConfigurationList = CE938FC0179AFCBE0013699D /* Build configuration list for PBXNativeTarget "RC CAR" */;
 			buildPhases = (
 				CE938F99179AFCBD0013699D /* Sources */,
 				CE938F9A179AFCBD0013699D /* Frameworks */,
@@ -177,9 +192,9 @@
 			);
 			dependencies = (
 			);
-			name = BlueRC;
+			name = "RC CAR";
 			productName = BlueRC;
-			productReference = CE938F9D179AFCBD0013699D /* BlueRC.app */;
+			productReference = CE938F9D179AFCBD0013699D /* RC CAR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE938F98179AFCBD0013699D /* Build configuration list for PBXProject "BlueRC" */;
+			buildConfigurationList = CE938F98179AFCBD0013699D /* Build configuration list for PBXProject "RC CAR" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -208,7 +223,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE938F9C179AFCBD0013699D /* BlueRC */,
+				CE938F9C179AFCBD0013699D /* RC CAR */,
 			);
 		};
 /* End PBXProject section */
@@ -223,10 +238,15 @@
 				CE938FB5179AFCBD0013699D /* Default@2x.png in Resources */,
 				CE938FB7179AFCBD0013699D /* Default-568h@2x.png in Resources */,
 				CE938FBA179AFCBD0013699D /* MainStoryboard.storyboard in Resources */,
+				D1CAA98A1859B99C0044D8C2 /* BLE-remote-design.png in Resources */,
 				CE938FC7179AFD4A0013699D /* analogue_bg.png in Resources */,
 				CE938FC8179AFD4A0013699D /* analogue_bg@2x.png in Resources */,
 				CE938FC9179AFD4A0013699D /* analogue_handle.png in Resources */,
+				D1CAA98C1859D6730044D8C2 /* iphone_retina_landscape.png in Resources */,
+				D1CAA9921859DD820044D8C2 /* icon120.png in Resources */,
+				D1CAA9901859DD820044D8C2 /* icon57.png in Resources */,
 				CE938FCA179AFD4A0013699D /* analogue_handle@2x.png in Resources */,
+				D1CAA9911859DD820044D8C2 /* icon114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,9 +351,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BlueRC/BlueRC-Prefix.pch";
-				INFOPLIST_FILE = "BlueRC/BlueRC-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "BlueRC/RC CAR-Prefix.pch";
+				INFOPLIST_FILE = "BlueRC/RC CAR-Info.plist";
+				PRODUCT_NAME = "RC CAR";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -345,9 +365,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BlueRC/BlueRC-Prefix.pch";
-				INFOPLIST_FILE = "BlueRC/BlueRC-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "BlueRC/RC CAR-Prefix.pch";
+				INFOPLIST_FILE = "BlueRC/RC CAR-Info.plist";
+				PRODUCT_NAME = "RC CAR";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -356,7 +376,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE938F98179AFCBD0013699D /* Build configuration list for PBXProject "BlueRC" */ = {
+		CE938F98179AFCBD0013699D /* Build configuration list for PBXProject "RC CAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE938FBE179AFCBE0013699D /* Debug */,
@@ -365,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE938FC0179AFCBE0013699D /* Build configuration list for PBXNativeTarget "BlueRC" */ = {
+		CE938FC0179AFCBE0013699D /* Build configuration list for PBXNativeTarget "RC CAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE938FC1179AFCBE0013699D /* Debug */,
