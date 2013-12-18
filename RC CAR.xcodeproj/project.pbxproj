@@ -17,7 +17,6 @@
 		CE938FB3179AFCBD0013699D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE938FB2179AFCBD0013699D /* Default.png */; };
 		CE938FB5179AFCBD0013699D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE938FB4179AFCBD0013699D /* Default@2x.png */; };
 		CE938FB7179AFCBD0013699D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE938FB6179AFCBD0013699D /* Default-568h@2x.png */; };
-		CE938FBA179AFCBD0013699D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE938FB8179AFCBD0013699D /* MainStoryboard.storyboard */; };
 		CE938FBD179AFCBE0013699D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE938FBC179AFCBE0013699D /* ViewController.m */; };
 		CE938FC7179AFD4A0013699D /* analogue_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CE938FC3179AFD4A0013699D /* analogue_bg.png */; };
 		CE938FC8179AFD4A0013699D /* analogue_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE938FC4179AFD4A0013699D /* analogue_bg@2x.png */; };
@@ -32,6 +31,17 @@
 		D1CAA9901859DD820044D8C2 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98D1859DD820044D8C2 /* icon57.png */; };
 		D1CAA9911859DD820044D8C2 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98E1859DD820044D8C2 /* icon114.png */; };
 		D1CAA9921859DD820044D8C2 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA98F1859DD820044D8C2 /* icon120.png */; };
+		D1CAA99918608A790044D8C2 /* bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA99718608A790044D8C2 /* bar_background.png */; };
+		D1CAA99A18608A790044D8C2 /* bar_trackimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA99818608A790044D8C2 /* bar_trackimage.png */; };
+		D1CAA9A51861923B0044D8C2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9A11861923B0044D8C2 /* arrow.png */; };
+		D1CAA9A61861923B0044D8C2 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9A21861923B0044D8C2 /* arrow@2x.png */; };
+		D1CAA9A71861923B0044D8C2 /* center_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9A31861923B0044D8C2 /* center_wheel.png */; };
+		D1CAA9A81861923B0044D8C2 /* center_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9A41861923B0044D8C2 /* center_wheel@2x.png */; };
+		D1CAA9AA186192510044D8C2 /* meter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9A9186192510044D8C2 /* meter@2x.png */; };
+		D1CAA9AD186192B10044D8C2 /* speedoMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CAA9AC186192B10044D8C2 /* speedoMeter.m */; };
+		D1CAA9AF1861938E0044D8C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CAA9AE1861938E0044D8C2 /* QuartzCore.framework */; };
+		D1CAA9B11861974C0044D8C2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9B01861974C0044D8C2 /* MainStoryboard.storyboard */; };
+		D1CAA9B31861985A0044D8C2 /* meter.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CAA9B21861985A0044D8C2 /* meter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +60,6 @@
 		CE938FB2179AFCBD0013699D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CE938FB4179AFCBD0013699D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CE938FB6179AFCBD0013699D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CE938FB9179AFCBD0013699D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CE938FBB179AFCBE0013699D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CE938FBC179AFCBE0013699D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE938FC3179AFD4A0013699D /* analogue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analogue_bg.png; sourceTree = "<group>"; };
@@ -69,6 +78,18 @@
 		D1CAA98D1859DD820044D8C2 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		D1CAA98E1859DD820044D8C2 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		D1CAA98F1859DD820044D8C2 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		D1CAA99718608A790044D8C2 /* bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_background.png; sourceTree = "<group>"; };
+		D1CAA99818608A790044D8C2 /* bar_trackimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_trackimage.png; sourceTree = "<group>"; };
+		D1CAA9A11861923B0044D8C2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		D1CAA9A21861923B0044D8C2 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		D1CAA9A31861923B0044D8C2 /* center_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = center_wheel.png; sourceTree = "<group>"; };
+		D1CAA9A41861923B0044D8C2 /* center_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "center_wheel@2x.png"; sourceTree = "<group>"; };
+		D1CAA9A9186192510044D8C2 /* meter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meter@2x.png"; sourceTree = "<group>"; };
+		D1CAA9AB186192B10044D8C2 /* speedoMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedoMeter.h; path = BlueRC/speedoMeter.h; sourceTree = "<group>"; };
+		D1CAA9AC186192B10044D8C2 /* speedoMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = speedoMeter.m; path = BlueRC/speedoMeter.m; sourceTree = "<group>"; };
+		D1CAA9AE1861938E0044D8C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D1CAA9B01861974C0044D8C2 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D1CAA9B21861985A0044D8C2 /* meter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CAA9AF1861938E0044D8C2 /* QuartzCore.framework in Frameworks */,
 				D155BC7D1855AF40002E4F82 /* CoreMotion.framework in Frameworks */,
 				06AE81D1179C817700CD66B6 /* AudioToolbox.framework in Frameworks */,
 				CE938FD4179AFE7B0013699D /* CoreBluetooth.framework in Frameworks */,
@@ -91,6 +113,8 @@
 		CE938F94179AFCBD0013699D = {
 			isa = PBXGroup;
 			children = (
+				D1CAA9AB186192B10044D8C2 /* speedoMeter.h */,
+				D1CAA9AC186192B10044D8C2 /* speedoMeter.m */,
 				CE938FA6179AFCBD0013699D /* BlueRC */,
 				CE938F9F179AFCBD0013699D /* Frameworks */,
 				CE938F9E179AFCBD0013699D /* Products */,
@@ -108,6 +132,7 @@
 		CE938F9F179AFCBD0013699D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1CAA9AE1861938E0044D8C2 /* QuartzCore.framework */,
 				D155BC7C1855AF40002E4F82 /* CoreMotion.framework */,
 				06AE81D0179C817700CD66B6 /* AudioToolbox.framework */,
 				06AE81CE179C7F8700CD66B6 /* CoreAudio.framework */,
@@ -123,14 +148,22 @@
 		CE938FA6179AFCBD0013699D /* BlueRC */ = {
 			isa = PBXGroup;
 			children = (
+				D1CAA9A9186192510044D8C2 /* meter@2x.png */,
+				D1CAA9A11861923B0044D8C2 /* arrow.png */,
+				D1CAA9A21861923B0044D8C2 /* arrow@2x.png */,
+				D1CAA9A31861923B0044D8C2 /* center_wheel.png */,
+				D1CAA9A41861923B0044D8C2 /* center_wheel@2x.png */,
 				D1CAA98D1859DD820044D8C2 /* icon57.png */,
+				D1CAA9B21861985A0044D8C2 /* meter.png */,
 				D1CAA98E1859DD820044D8C2 /* icon114.png */,
 				D1CAA98F1859DD820044D8C2 /* icon120.png */,
 				D1CAA9891859B99C0044D8C2 /* BLE-remote-design.png */,
 				CE938FAF179AFCBD0013699D /* AppDelegate.h */,
+				D1CAA99718608A790044D8C2 /* bar_background.png */,
+				D1CAA9B01861974C0044D8C2 /* MainStoryboard.storyboard */,
+				D1CAA99818608A790044D8C2 /* bar_trackimage.png */,
 				D1CAA98B1859D6730044D8C2 /* iphone_retina_landscape.png */,
 				CE938FB0179AFCBD0013699D /* AppDelegate.m */,
-				CE938FB8179AFCBD0013699D /* MainStoryboard.storyboard */,
 				CE938FBB179AFCBE0013699D /* ViewController.h */,
 				CE938FBC179AFCBE0013699D /* ViewController.m */,
 				D155BC7E1856011A002E4F82 /* JSAnalogueStick.h */,
@@ -233,15 +266,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CAA99918608A790044D8C2 /* bar_background.png in Resources */,
+				D1CAA99A18608A790044D8C2 /* bar_trackimage.png in Resources */,
 				CE938FAB179AFCBD0013699D /* InfoPlist.strings in Resources */,
+				D1CAA9B11861974C0044D8C2 /* MainStoryboard.storyboard in Resources */,
 				CE938FB3179AFCBD0013699D /* Default.png in Resources */,
 				CE938FB5179AFCBD0013699D /* Default@2x.png in Resources */,
 				CE938FB7179AFCBD0013699D /* Default-568h@2x.png in Resources */,
-				CE938FBA179AFCBD0013699D /* MainStoryboard.storyboard in Resources */,
 				D1CAA98A1859B99C0044D8C2 /* BLE-remote-design.png in Resources */,
+				D1CAA9A61861923B0044D8C2 /* arrow@2x.png in Resources */,
+				D1CAA9AA186192510044D8C2 /* meter@2x.png in Resources */,
+				D1CAA9A81861923B0044D8C2 /* center_wheel@2x.png in Resources */,
 				CE938FC7179AFD4A0013699D /* analogue_bg.png in Resources */,
 				CE938FC8179AFD4A0013699D /* analogue_bg@2x.png in Resources */,
+				D1CAA9B31861985A0044D8C2 /* meter.png in Resources */,
+				D1CAA9A51861923B0044D8C2 /* arrow.png in Resources */,
 				CE938FC9179AFD4A0013699D /* analogue_handle.png in Resources */,
+				D1CAA9A71861923B0044D8C2 /* center_wheel.png in Resources */,
 				D1CAA98C1859D6730044D8C2 /* iphone_retina_landscape.png in Resources */,
 				D1CAA9921859DD820044D8C2 /* icon120.png in Resources */,
 				D1CAA9901859DD820044D8C2 /* icon57.png in Resources */,
@@ -258,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE938FAD179AFCBD0013699D /* main.m in Sources */,
+				D1CAA9AD186192B10044D8C2 /* speedoMeter.m in Sources */,
 				CE938FB1179AFCBD0013699D /* AppDelegate.m in Sources */,
 				CE938FBD179AFCBE0013699D /* ViewController.m in Sources */,
 				CE938FD2179AFE5B0013699D /* BLE.m in Sources */,
@@ -274,14 +316,6 @@
 				CE938FAA179AFCBD0013699D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CE938FB8179AFCBD0013699D /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE938FB9179AFCBD0013699D /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

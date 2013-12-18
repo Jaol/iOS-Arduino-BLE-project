@@ -10,12 +10,9 @@
 
 
 
-
 @interface ViewController ()
 
 @end
-
-
 
 @implementation ViewController
 
@@ -23,22 +20,33 @@
 @synthesize gyro_x;
 @synthesize gyro_y;
 @synthesize gyro_z;
+@synthesize speedCtl;
+@synthesize mainView;
+@synthesize speedoView;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    speedoMeterClass = [[speedoMeter alloc] init];
+    
+    [speedoView addSubview:[speedoMeterClass view]];
+
+    [speedoMeterClass addMeterViewContents];
+    
     movingValueFB = -1;
     movingValueFB = -1;
     motionManager = [[CMMotionManager alloc] init];
-    
     ble = [[BLE alloc]init];
     [ble controlSetup:1];
     ble.delegate = self;
-   // self.analogStick.delegate = self;
     [self.connectButton addTarget:self action:@selector(scanForPeripherals:) forControlEvents:UIControlEventTouchUpInside];
-    
     [self updateAnalogueLabel];
+    scaleFactor = 0;
 
+    
    }
 
 
@@ -46,183 +54,136 @@
 
 -(IBAction)toggleUpdates:(id)sender {
 	if ([sender isOn]) {
- [self doGyroUpdate];
-        /*
-		[motionManager startGyroUpdates];
-		timer = [NSTimer scheduledTimerWithTimeInterval:1/30.0
-												 target:self
-											   selector:@selector(doGyroUpdate)
-											   userInfo:nil
-												repeats:YES];
-         */
+        [self doGyroUpdate];
 	} else {
-		[motionManager stopGyroUpdates];
+		[motionManager stopAccelerometerUpdates];
 	}
-
 }
-
-
-
-
--(void)doGyroUpdate {
-	if([motionManager isGyroAvailable])
-    {
-        /* Start the gyroscope if it is not active already */
-        if([motionManager isGyroActive] == NO)
-        {
-            /* Update us 2 times a second */
-            [motionManager setGyroUpdateInterval:1.0f / 10.0f];
-            
-            /* Add on a handler block object */
-            
-            /* Receive the gyroscope data on this block */
-            [motionManager startGyroUpdatesToQueue:[NSOperationQueue mainQueue]
-                                            withHandler:^(CMGyroData *gyroData, NSError *error)
-             {
-                 gyro_x = [[NSString alloc] initWithFormat:@"%.02f",gyroData.rotationRate.x];
-                 self.x_txt.text = gyro_x;
-                
-                 x_val = gyroData.rotationRate.x;
-                 
-                 gyro_y = [[NSString alloc] initWithFormat:@"%.02f",gyroData.rotationRate.y];
-                 self.y_txt.text = gyro_y;
-                 
-                  y_val = gyroData.rotationRate.y;
-                 
-                gyro_z = [[NSString alloc] initWithFormat:@"%.02f",gyroData.rotationRate.z];
-                 self.z_txt.text = gyro_z;
-                 
-                  z_val = gyroData.rotationRate.z;
-                 
-                 
-                 // CAST
-                 
-                 [self processGyroControls];
-             }];
-            
-        }
-    }
-    else
-    {
-        NSLog(@"Gyroscope not Available!");
-    }
-}
-
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 - (void)updateAnalogueLabel
 {
-	[self.x_txt setText:[NSString stringWithFormat:@"Gyro data readout"]];
+	[self.x_txt setText:[NSString stringWithFormat:@"Ready!"]];
 }
 
-//#pragma mark - JSAnalogueStickDelegate
 
-- (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
+- (void)speedUP:(NSTimer *)timer
 {
+    if(scaleFactor != 0){
+    speedoMeterClass.speedometerCurrentValue = speedCounter/scaleFactor;
+    }else{
+        speedoMeterClass.speedometerCurrentValue = speedCounter;
+    }
+    [speedoMeterClass setSpeedometerCurrentValue];
+    //NSLog(@"UP : %i",speedCounter);
     
-    //[self.x_txt setText:[NSString stringWithFormat:@"x: %f",self.analogStick.xValue*255]];
-    //[self.y_txt setText:[NSString stringWithFormat:@"y: %f",self.analogStick.yValue*255]];
-    [self.z_txt setText:[NSString stringWithFormat:@"z: !"]];
-    
-    //if(self.analogStick.xValue
-    
-	   
-    
-    
-    // X horisontal
-     //Xval = self.analogStick.xValue*255;
-    
-    if(Xval >= 50){
-        NSLog(@"GOING RIGHT");
-        movingValueFB = 4;
+    if(speedCounter >= 100)
+    {
         
-    }
-    if(Xval <= -50){
-        NSLog(@"GOING LEFT");
-        movingValueFB = 3;
-    }
-    
-    
-    // Y Vertical
-     //Yval = self.analogStick.yValue*255;
-    
-    
-    if(Yval >= 50){
-        NSLog(@"GOING FORWARD");
-        movingValueFB = 1;
-    }else
-    if(Yval <= -50){
-        NSLog(@"GOING BACKWARD");
-        movingValueFB = 2;
-    }
-    
-    else{
-        Yval = 0;
-        Xval = 0;
+        [speedTimerUP invalidate];
+        speedTimerUP = nil;
+        //speedCounter = 0;
         
+    }else{
+    speedCounter++;
     }
-    [self processAnalogControls];
+}
+
+- (void)speedDOWN:(NSTimer *)timer
+{
+    speedoMeterClass.speedometerCurrentValue = speedCounter/scaleFactor;
+    [speedoMeterClass setSpeedometerCurrentValue];
     
+     //NSLog(@"DOWN : %f",self.speedbar.progress);
+    if(speedCounter == 0)
+    {
+        [speedTimerDOWN invalidate];
+        speedTimerDOWN = nil;
+        speedCounter = 0;
+        
+    }else{
+        speedCounter--;
+    }
+}
+
+
+-(void)startSpeedometer{
+    [speedTimerDOWN invalidate];
+    speedTimerDOWN = nil;
+    speedTimerUP = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(speedUP:) userInfo:nil repeats:YES];
+}
+
+
+-(void)stopSpeedometer{
+    [speedTimerUP invalidate];
+    speedTimerUP = nil;
+    speedTimerDOWN = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(speedDOWN:) userInfo:nil repeats:YES];
+
 }
 
 -(IBAction)forward{
     movingValueFB = 5;[self processAnalogControls];
+    [self startSpeedometer];
+     /*
     timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
     if(timerForward == nil)
         timerForward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goForward) userInfo:nil repeats:YES];
+     */
 };
 -(IBAction)forwardStop{
-    [timerForward invalidate];
-    timerForward = nil;
-    movingValueFB = 99;
-    [self processAnalogControls];
+    [self stopSpeedometer];
+    
+    movingValueFB = 99;[self processAnalogControls];
 };
 
 -(IBAction)backward{
     movingValueFB = 1;[self processAnalogControls];
+    
+    /*
     timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
     if(timerBackward == nil)
         timerBackward = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goBackward) userInfo:nil repeats:YES];
+     */
     
 };
 -(IBAction)backwardStop{
-    [timerBackward invalidate];
-    timerBackward = nil;
-    movingValueFB = 99;
-    [self processAnalogControls];
+    //[timerBackward invalidate];
+    //timerBackward = nil;
+    movingValueFB = 99;[self processAnalogControls];
 };
 
 -(IBAction)left{
     movingValueLR = 6;[self processAnalogControls];
+    /*
     timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
     if(timerLeft == nil)
         timerLeft = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goLeft) userInfo:nil repeats:YES];
+     */
 };
 -(IBAction)leftStop{
-    [timerLeft invalidate];
-    timerLeft = nil;
-    movingValueLR = 99;
-    [self processAnalogControls];
+    //[timerLeft invalidate];
+    //timerLeft = nil;
+    movingValueLR = 99;[self processAnalogControls];
 };
 
 -(IBAction)right{
     movingValueLR = 2;[self processAnalogControls];
+    /*
     timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
     if(timerRight == nil)
         timerRight = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(goRight) userInfo:nil repeats:YES];
+    */
 };
 -(IBAction)rightStop{
-    [timerRight invalidate];
-    timerRight = nil;
-    movingValueLR = 99;
-    [self processAnalogControls];
+    //[timerRight invalidate];
+    //timerRight = nil;
+    movingValueLR = 99;[self processAnalogControls];
 };
 
 
@@ -232,34 +193,25 @@
 -(void)goRight{};
 
 -(void)processAnalogControls{
-    
-    NSLog(@"pres/release");
-    
+
     if(movingValueFB == 0)
     movingValueFB =99;
     
     if(movingValueLR == 0)
-        movingValueLR =99;
+    movingValueLR =99;
     
     if([ble isConnected]){
-        
-        
-        //int scaledXval= abs(floorf((int)movingValueFB));//movingValueFB;//*255;
-    
-   //     int scaledYval= abs(floorf((int)movingValueLR));//movingValueLR;//*255;
-        
-       
         
         //buf[]={scaledValForMotor1, dirForMotor1(HIGH|LOW),scalevValForMotor2, dirForMotor2(HIGH|LOW) NULL}
         UInt8 buf[5] = {0x00, 0x00, 0x00, 0x00, 0x00};
         
-       // buf[1] = scaledYval;
-       // buf[3] = scaledXval;
         
         buf[0] = movingValueFB;
-        buf[2] = movingValueLR;
+        buf[2] = speedValue;//movingValueLR;
         buf[1] = 99;
-        buf[3] = 99;
+        buf[3] = speedValue;//99;
+        buf[4] = speedValue;
+        
         
         if(movingValueFB == 5){
         buf[1] = 255;
@@ -269,7 +221,6 @@
         buf[1] = 0;
         }
         else if(movingValueFB == -1){
-            NSLog(@"FB button release");
             buf[1] = 99;
             buf[0] = 99;
         }
@@ -280,38 +231,151 @@
         }else if(movingValueLR == 2) {
             buf[3] = 0;
         }else if(movingValueLR == -1){
-             NSLog(@"LR button release");
             buf[3] = 99;
             buf[2] = 99;
         }
         
-        // NSLog(@"FB: %i ,LR: %i",buf[3],buf[1]);
-        
-        
         NSData *d = [[NSData alloc]initWithBytes:buf length:5];
-
         [ble write:d];
-        
-        
     }
+}
+
+
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    
+    
+    
+    self.x_txt.text = [NSString stringWithFormat:@" %.2fg",acceleration.x];
+    if(fabs(acceleration.x) > fabs(currentMaxAccelX))
+    {
+        currentMaxAccelX = acceleration.x;
+    }
+    self.y_txt.text = [NSString stringWithFormat:@" %.2fg",acceleration.y];
+    if(fabs(acceleration.y) > fabs(currentMaxAccelY))
+    {
+        currentMaxAccelY = acceleration.y;
+    }
+    self.z_txt.text = [NSString stringWithFormat:@" %.2fg",acceleration.z];
+    if(fabs(acceleration.z) > fabs(currentMaxAccelZ))
+    {
+        currentMaxAccelZ = acceleration.z;
+    }
+    
+    
+    // Forward / backward
+
+        
+        if(acceleration.x < -0.25){
+            
+            movingValueFB = 5;
+            //NSLog(@"Forward command");
+        }if(acceleration.x > 0.25){
+            movingValueFB = 1;
+            //NSLog(@"Backward command");
+           
+        }else if(acceleration.x < 0.2 && acceleration.x > -0.2){
+            //NSLog(@"stop F/B command");
+                       movingValueFB = 99;
+        }
+    if (fabs(acceleration.x) > .2) {
+        [self processGyroControls];
+       
+       // NSLog(@"FB signal sent...");
+    }
+     // Left / Right
+    
+        
+        if(acceleration.y < -0.25){
+            movingValueLR = 6;
+            //NSLog(@"Left command");
+        }if(acceleration.y > 0.25){
+            movingValueLR = 2;
+            //NSLog(@"Right command");
+        }else if(acceleration.y < 0.2 && acceleration.y > -0.2){
+            //NSLog(@"stop L/R command");
+            movingValueLR = 99;
+        }
+      if (fabs(acceleration.y) > .2) {
+        [self processGyroControls];
+     //NSLog(@"LR signal sent...");
+
+      }
+    
+}
+-(void)outputRotationData:(CMRotationRate)rotation
+{
+    
+    //self.rotX.text = [NSString stringWithFormat:@" %.2fr/s",rotation.x];
+    if(fabs(rotation.x) > fabs(currentMaxRotX))
+    {
+        currentMaxRotX = rotation.x;
+    }
+    //self.rotY.text = [NSString stringWithFormat:@" %.2fr/s",rotation.y];
+    if(fabs(rotation.y) > fabs(currentMaxRotY))
+    {
+        currentMaxRotY = rotation.y;
+    }
+    //self.rotZ.text = [NSString stringWithFormat:@" %.2fr/s",rotation.z];
+    if(fabs(rotation.z) > fabs(currentMaxRotZ))
+    {
+        currentMaxRotZ = rotation.z;
+    }
+    
+  }
+
+-(void)doGyroUpdate {
+    
+    
+    motionManager.accelerometerUpdateInterval = .2;
+    
+    [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+    withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+    [self outputAccelertionData:accelerometerData.acceleration];
+    if(error){NSLog(@"%@", error);} }];
+    
 }
 
 -(void)processGyroControls{
-     if([ble isConnected]){
-
+    if(movingValueFB == 0)
+        movingValueFB =99;
+    
+    if(movingValueLR == 0)
+        movingValueLR =99;
+    
+    if([ble isConnected]){
         
-        int scaledZval = abs(floorf((float)z_val*255));
-        
-        int scaledYval = abs(floorf((float)x_val*255));
-        
+        //buf[]={scaledValForMotor1, dirForMotor1(HIGH|LOW),scalevValForMotor2, dirForMotor2(HIGH|LOW) NULL}
         UInt8 buf[5] = {0x00, 0x00, 0x00, 0x00, 0x00};
         
         
+        buf[0] = movingValueFB;
+        buf[2] = movingValueLR;
+        buf[1] = 99;
+        buf[3] = speedValue;
+        //buf[4] = speedValue;
         
-        buf[1] = scaledZval;
-        buf[3] = scaledYval;
+        if(movingValueFB == 5){
+            buf[1] = 255;
+        }
         
-
+        else if(movingValueFB == 1){
+            buf[1] = 0;
+        }
+        else if(movingValueFB == -1){
+            buf[1] = 99;
+            buf[0] = 99;
+        }
+        
+        if(movingValueLR == 6){
+            buf[3] = 255;
+            
+        }else if(movingValueLR == 2) {
+            buf[3] = 0;
+        }else if(movingValueLR == -1){
+            buf[3] = 99;
+            buf[2] = 99;
+        }
         
         NSData *d = [[NSData alloc]initWithBytes:buf length:5];
         
@@ -319,6 +383,7 @@
         
     }
 }
+
 
 
 
@@ -346,6 +411,8 @@
 
 -(void)bleDidReceiveData:(unsigned char *)data length:(int)length{
     
+    self.returnLabel.text = @"";
+    
     NSData *d = [NSData dataWithBytes:data length:length];
     NSString *s = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
     
@@ -353,7 +420,7 @@
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     }
     
-    
+    self.returnLabel.text = s;
 
 }
 
@@ -399,4 +466,31 @@
 }
 
 
+- (IBAction)speedCtlAction:(id)sender {
+    
+ 
+    switch (speedCtl.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"0");
+            speedValue = 771;
+            scaleFactor = 0;
+
+            break;
+        case 1:
+            NSLog(@"1");
+            speedValue = 772;
+            scaleFactor = 2;
+
+            break;
+        case 2:
+            NSLog(@"2");
+            speedValue = 773;
+            scaleFactor = 2.5;
+
+            break;
+        default:
+            break;
+    }
+    
+}
 @end

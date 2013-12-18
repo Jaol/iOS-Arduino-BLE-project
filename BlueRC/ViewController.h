@@ -11,18 +11,25 @@
 #import <CoreMotion/CoreMotion.h>
 #import "JSAnalogueStick.h"
 #import "BLE.h"
-@interface ViewController : UIViewController<JSAnalogueStickDelegate, BLEDelegate>
+#import "speedoMeter.h"
+
+@interface ViewController : UIViewController<BLEDelegate>
 {
     
 	CMMotionManager *motionManager;
-	
+	speedoMeter* speedoMeterClass;
+   
     NSTimer *timerForward;
     NSTimer *timerBackward;
     NSTimer *timerLeft;
     NSTimer *timerRight;
     
+    NSTimer *speedTimerUP;
+    NSTimer *speedTimerDOWN;
+    
 	float z_rotation;
 	float x_rotation;
+    float y_rotation;
     
     float x_val;
 	float y_val;
@@ -33,9 +40,28 @@
     int movingValueFB;
     // LEFT / RIGHT
     int movingValueLR;
-
+    
+    double currentMaxAccelX;
+    double currentMaxAccelY;
+    double currentMaxAccelZ;
+    double currentMaxRotX;
+    double currentMaxRotY;
+    double currentMaxRotZ;
+    int scaleFactor;
+    int speedValue;
+    int speedCounter;
 }
+@property (strong, nonatomic) IBOutlet UIView *mainView;
+
+@property (strong, nonatomic) IBOutlet UIView *speedoView;
+- (IBAction)speedCtlAction:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *speedCtl;
+
 //@property (weak, nonatomic) IBOutlet JSAnalogueStick *analogStick;
+@property (strong, nonatomic) IBOutlet UILabel *returnLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *x_txt;
 @property (strong, nonatomic) IBOutlet UILabel *y_txt;
 @property (strong, nonatomic) IBOutlet UILabel *z_txt;
