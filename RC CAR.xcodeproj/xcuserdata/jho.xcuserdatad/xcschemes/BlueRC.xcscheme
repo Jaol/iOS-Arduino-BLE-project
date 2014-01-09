@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE938F9C179AFCBD0013699D"
-               BuildableName = "BlueRC.app"
+               BuildableName = "RC CAR.app"
                BlueprintName = "RC CAR"
                ReferencedContainer = "container:RC CAR.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE938F9C179AFCBD0013699D"
-            BuildableName = "BlueRC.app"
+            BuildableName = "RC CAR.app"
             BlueprintName = "RC CAR"
             ReferencedContainer = "container:RC CAR.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE938F9C179AFCBD0013699D"
-            BuildableName = "BlueRC.app"
+            BuildableName = "RC CAR.app"
             BlueprintName = "RC CAR"
             ReferencedContainer = "container:RC CAR.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE938F9C179AFCBD0013699D"
-            BuildableName = "BlueRC.app"
+            BuildableName = "RC CAR.app"
             BlueprintName = "RC CAR"
             ReferencedContainer = "container:RC CAR.xcodeproj">
          </BuildableReference>

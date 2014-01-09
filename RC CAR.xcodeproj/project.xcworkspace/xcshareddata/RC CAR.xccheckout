@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0778CC98-5CF3-4101-9B60-7CA743553FD4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RC CAR</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>771B4177-EE4F-4449-81B7-2125F77FB7E6</key>
+		<string>https://github.com/Jaol/iOS-Arduino-BLE-project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RC CAR.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>771B4177-EE4F-4449-81B7-2125F77FB7E6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jaol/iOS-Arduino-BLE-project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>771B4177-EE4F-4449-81B7-2125F77FB7E6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>771B4177-EE4F-4449-81B7-2125F77FB7E6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BlueRCiOS-master</string>
+		</dict>
+	</array>
+</dict>
+</plist>

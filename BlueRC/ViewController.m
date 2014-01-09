@@ -236,6 +236,7 @@
         }
         
         NSData *d = [[NSData alloc]initWithBytes:buf length:5];
+        NSLog(@"%@",d);
         [ble write:d];
     }
 }
@@ -421,6 +422,8 @@
     }
     
     self.returnLabel.text = s;
+    
+    NSLog(@"%@",s);
 
 }
 
